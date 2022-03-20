@@ -1,0 +1,11 @@
+.header {
+  @apply top-0 left-0 shadow-sm bg-white h-[70px] px-5 lg:px-20 w-full fixed flex flex-row justify-between items-center;
+}
+.navList li {
+  cursor: pointer;
+}
+
+header,
+.popup {
+  z-index: 10000000000;
+}

@@ -1,0 +1,10 @@
+.recentHeader {
+  @apply text-2xl text-black  font-normal underline underline-offset-2 decoration-1 decoration-rose-500;
+}
+
+.bookCardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}

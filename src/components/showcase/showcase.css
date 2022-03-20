@@ -1,0 +1,8 @@
+.showcaseCard {
+  @apply h-[150px]  rounded-lg flex flex-col bg-gray-100 shadow-lg relative;
+  min-width: 20%;
+}
+
+.showcaseArrow {
+  @apply absolute bottom-2 right-2;
+}
