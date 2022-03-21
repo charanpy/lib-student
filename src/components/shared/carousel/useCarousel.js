@@ -32,6 +32,7 @@ const useCarousel = (items, breakpoints = breakpointsData) => {
       maxItem: max,
       data: items.slice(0, max),
     }));
+
     // eslint-disable-next-line
   }, []);
 

@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import FullPageLoader from '../components/shared/loader/FullPageLoader.component';
+import ApiRequest from '../lib/ApiRequest';
 
 const AuthContext = createContext({});
 
@@ -18,18 +19,21 @@ const AuthProvider = ({ children }) => {
 
   const getMe = async () => {
     try {
-      const res = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/auth/student/me`,
-        {
-          credentials: 'include',
-        }
+      const request = new ApiRequest(
+        '/auth/student/me',
+        'GET',
+        null,
+        false,
+        true
       );
-      const data = await res.json();
+      if (!request.getToken()) throw new Error();
+      const data = await request.request();
 
       if (data?.user) {
         setAuth((prev) => ({ ...prev, loading: false, user: data?.user }));
       } else throw new Error();
     } catch (error) {
+      console.log('No token');
       setAuth((prev) => ({ ...prev, loading: false }));
     }
   };
@@ -41,35 +45,23 @@ const AuthProvider = ({ children }) => {
   if (loading) return <FullPageLoader />;
 
   const login = async (payload) => {
-    const res = await fetch(`${process.env.REACT_APP_BASE_URL}/auth/student`, {
-      method: 'POST',
-      credentials: 'include',
-      body: JSON.stringify(payload),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    const req = new ApiRequest('/auth/student', 'POST', payload);
 
-    const data = await res.json();
+    const data = await req.request();
 
-    if (data?.student) setAuth((prev) => ({ ...prev, user: data?.student }));
+    if (data?.student) {
+      req.setToken(data?.token);
+      setAuth((prev) => ({ ...prev, user: data?.student }));
+    }
 
     return data;
   };
 
   const logout = async () => {
-    try {
-      const res = await fetch(`${process.env.REACT_APP_BASE_URL}/auth/logout`, {
-        credentials: 'include',
-      });
-      const data = await res.json();
-      if (data.status === 'fail' || data.status === 'error') throw new Error();
-      toast.success('Logged out successfully');
-      setAuth((prev) => ({ ...prev, user: null }));
-      navigate('/login');
-    } catch (error) {
-      toast.error('Failed to logout');
-    }
+    localStorage.removeItem('token');
+    setAuth((prev) => ({ ...prev, user: null }));
+    toast.success('Logged out successfully');
+    navigate('/login');
   };
 
   return (

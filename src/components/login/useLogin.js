@@ -28,6 +28,7 @@ const useLogin = () => {
       toast.success('Logged In successfully');
       navigate('/');
     } catch (error) {
+      console.log(error);
       toast.error(error?.message || 'Something went wrong');
     }
   };
