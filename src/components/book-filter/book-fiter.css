@@ -3,6 +3,7 @@
   visibility: hidden;
   opacity: 0;
   transition: all 500ms linear;
+  z-index: 100000;
 }
 
 .author:focus > .author-list {
@@ -31,6 +32,13 @@
   .author {
     width: 100%;
     margin-right: 0 !important;
+  }
+  .author-list > div::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  .author-list > div::-webkit-scrollbar-thumb {
+    border-radius: 25%;
   }
 }
 

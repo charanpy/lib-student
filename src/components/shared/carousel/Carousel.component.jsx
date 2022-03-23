@@ -24,13 +24,17 @@ const Carousel = ({ items = [], Component, cardHeight, cardWidth }) => {
             variants={variants}
             className={`mx-10 space-y-4 flex flex-col items-center`}
             style={{
-              height: `${cardHeight || 200}px`,
-              width: `${cardWidth || 150}px`,
+              minHeight: `${cardHeight || 200}px`,
+              minWidth: `${cardWidth || 150}px`,
             }}
             key={item._id}
             whileTap={{ scale: 0.8 }}
           >
-            <Component item={item} />
+            <Component
+              item={item}
+              height={cardHeight || 200}
+              width={cardWidth || 150}
+            />
           </motion.figure>
         ))}
       </AnimatePresence>
