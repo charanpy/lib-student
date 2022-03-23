@@ -13,7 +13,11 @@ const Carousel = ({ items = [], Component, cardHeight, cardWidth }) => {
   console.log('render');
   return (
     <div className='overflow-hidden flex flex-row justify-between items-center h-[400px]'>
-      <div onClick={handlePrevious} role='button'>
+      <div
+        onClick={handlePrevious}
+        role='button'
+        className='absolute left-[50px]'
+      >
         <LeftArrowSVG />
       </div>
       <AnimatePresence>
@@ -38,7 +42,7 @@ const Carousel = ({ items = [], Component, cardHeight, cardWidth }) => {
           </motion.figure>
         ))}
       </AnimatePresence>
-      <div onClick={handleNext} role='button'>
+      <div onClick={handleNext} role='button' className='absolute right-[50px]'>
         <RightArrowSVG />
       </div>
     </div>
