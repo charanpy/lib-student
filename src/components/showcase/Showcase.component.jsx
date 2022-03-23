@@ -14,11 +14,13 @@ const ShowcaseItem = ({ children, item }) => {
       className='showcaseCard centerAll dark:bg-slate-800'
     >
       <Link
-        className='space-y-4 flex flex-col centerAll'
+        className='space-y-4 2xl:space-y-6 flex flex-col centerAll'
         to={`/${item.toLowerCase()}`}
       >
         {children}
-        <h1 className='text-gray-900 dark:text-white text-lg'>{item}</h1>
+        <h1 className='text-gray-900 dark:text-white text-lg 2xl:text-2xl'>
+          {item}
+        </h1>
         <div className='showcaseArrow'>
           <RightSubArrowSvg />
         </div>

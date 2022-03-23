@@ -46,7 +46,6 @@ class ApiRequest {
     if (data?.status === 'error' || data?.status === 'fail') {
       throw new Error(data?.message || 'Something went wrong');
     }
-    console.log(data);
     return data;
   }
 }

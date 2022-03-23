@@ -1,5 +1,5 @@
 .recentHeader {
-  @apply text-2xl text-black  font-normal underline underline-offset-2 decoration-1 decoration-rose-500;
+  @apply text-2xl 2xl:text-3xl text-black  font-normal underline underline-offset-2 decoration-1 decoration-rose-500;
 }
 
 .bookCardImage {

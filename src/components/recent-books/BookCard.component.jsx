@@ -9,8 +9,9 @@ const BookCard = ({ item }) => {
         loading='lazy'
         alt='book'
         className='bookCardImage'
+        as
       />
-      <figcaption className='text-slate-700 dark:text-slate-200 text-lg capitalize'>
+      <figcaption className='text-slate-700 dark:text-slate-200 text-lg 2xl:text-xl capitalize'>
         {item?.title}
       </figcaption>
     </>

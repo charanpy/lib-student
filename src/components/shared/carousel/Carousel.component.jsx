@@ -22,9 +22,11 @@ const Carousel = ({ items = [], Component, cardHeight, cardWidth }) => {
             initial='hidden'
             animate='visible'
             variants={variants}
-            className={`mx-10 h-[${cardHeight || 300}px] w-[${
-              cardWidth || 200
-            }px] space-y-4 flex flex-col items-center`}
+            className={`mx-10 space-y-4 flex flex-col items-center`}
+            style={{
+              height: `${cardHeight || 200}px`,
+              width: `${cardWidth || 150}px`,
+            }}
             key={item._id}
             whileTap={{ scale: 0.8 }}
           >

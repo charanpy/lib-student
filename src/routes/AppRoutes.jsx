@@ -5,9 +5,11 @@ import PrivateRoute from './PrivateRoute';
 import PageTransition from './PageTransition';
 import FullPageLoader from '../components/shared/loader/FullPageLoader.component';
 import Home from '../pages/home/Home.page';
+import AuthorPage from '../pages/author/Author.page';
 
 const Dashboard = lazy(() => import('../pages/dashboard/Dashboard.page'));
 const Login = lazy(() => import('../pages/login/Login.page'));
+const BooksPage = lazy(() => import('../pages/books/Books.page'));
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -39,6 +41,26 @@ const AppRoutes = () => {
                   <Dashboard />
                 </PageTransition>
               </PrivateRoute>
+            }
+          />
+          <Route
+            path='/books'
+            element={
+              // <PrivateRoute>
+              <PageTransition>
+                <BooksPage />
+              </PageTransition>
+              // </PrivateRoute>
+            }
+          />
+          <Route
+            path='/author'
+            element={
+              // <PrivateRoute>
+              <PageTransition>
+                <AuthorPage />
+              </PageTransition>
+              // </PrivateRoute>
             }
           />
         </Routes>

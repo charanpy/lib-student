@@ -35,3 +35,7 @@
     height: 32px;
   }
 }
+
+.fullLoader {
+  z-index: 1000000000000;
+}

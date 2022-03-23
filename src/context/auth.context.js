@@ -34,6 +34,7 @@ const AuthProvider = ({ children }) => {
       } else throw new Error();
     } catch (error) {
       console.log('No token');
+      localStorage.removeItem('token');
       setAuth((prev) => ({ ...prev, loading: false }));
     }
   };

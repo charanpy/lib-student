@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <header className='header dark:bg-[#0E1924]'>
       <div>
-        <h1 className='font-semibold text-2xl text-slate-900 dark:text-slate-100'>
+        <h1 className='font-semibold text-2xl 2xl:text-3xl text-slate-900 dark:text-slate-100'>
           E-Library
         </h1>
       </div>

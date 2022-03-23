@@ -6,7 +6,7 @@ const modal = {
   exit: { opacity: 0 },
 };
 
-const Popup = ({ children, open }) => {
+const Popup = ({ children, open, className }) => {
   return (
     <AnimatePresence exitBeforeEnter>
       {open && (
@@ -15,6 +15,7 @@ const Popup = ({ children, open }) => {
           initial='hidden'
           animate='visible'
           exit='exit'
+          className={className || ''}
         >
           {children}
         </motion.div>

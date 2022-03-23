@@ -1,0 +1,43 @@
+.author-list {
+  @apply absolute top-[45px] left-0 w-full bg-slate-100;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 500ms linear;
+}
+
+.author:focus > .author-list {
+  visibility: visible;
+  opacity: 1;
+}
+
+.author-list > div::-webkit-scrollbar {
+  width: 6px;
+}
+
+.author-list > div::-webkit-scrollbar-thumb {
+  background: #0891b2;
+  border-radius: 25%;
+}
+
+.listBox {
+  @apply justify-between items-center relative my-6 mr-4;
+}
+
+.bookFilterContainer {
+  @apply border-0 rounded-lg shadow-md bg-white;
+}
+
+@media (max-width: 767px) {
+  .author {
+    width: 100%;
+    margin-right: 0 !important;
+  }
+}
+
+.cardInputWrapper {
+  @apply flex flex-col space-y-6 md:space-y-4 p-4;
+}
+
+.cardSearchBtn {
+  @apply py-1.5 px-10 rounded-full text-white bg-blue-500 2xl:text-xl;
+}
