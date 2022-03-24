@@ -1,13 +1,14 @@
-import { lazy, Suspense } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
-import PrivateRoute from './PrivateRoute';
-import PageTransition from './PageTransition';
-import FullPageLoader from '../components/shared/loader/FullPageLoader.component';
-import Home from '../pages/home/Home.page';
+import { lazy, Suspense } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import PrivateRoute from "./PrivateRoute";
+import PageTransition from "./PageTransition";
+import FullPageLoader from "../components/shared/loader/FullPageLoader.component";
+import Home from "../pages/home/Home.page";
+import ForgetPasswordComponent from "../components/forget-password/ForgetPassword.component";
 
-const Dashboard = lazy(() => import('../pages/dashboard/Dashboard.page'));
-const Login = lazy(() => import('../pages/login/Login.page'));
+const Dashboard = lazy(() => import("../pages/dashboard/Dashboard.page"));
+const Login = lazy(() => import("../pages/login/Login.page"));
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -16,7 +17,7 @@ const AppRoutes = () => {
       <AnimatePresence exitBeforeEnter initial={false}>
         <Routes location={location} key={location.pathname}>
           <Route
-            path='/'
+            path="/"
             element={
               <PageTransition>
                 <Home />
@@ -24,7 +25,7 @@ const AppRoutes = () => {
             }
           />
           <Route
-            path='/login'
+            path="/login"
             element={
               <PageTransition>
                 <Login />
@@ -32,7 +33,7 @@ const AppRoutes = () => {
             }
           />
           <Route
-            path='/dashboard'
+            path="/dashboard"
             element={
               <PrivateRoute>
                 <PageTransition>
@@ -41,6 +42,7 @@ const AppRoutes = () => {
               </PrivateRoute>
             }
           />
+          <Route path="/forgetpassword" element={<ForgetPasswordComponent />} />
         </Routes>
       </AnimatePresence>
     </Suspense>

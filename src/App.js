@@ -1,11 +1,11 @@
-import { ThemeProvider } from './context/theme.context';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
-import { ToastContainer } from 'react-toastify';
-import AppLayout from './layouts';
-import AppRoutes from './routes/AppRoutes';
-import AuthProvider from './context/auth.context';
-import 'react-toastify/dist/ReactToastify.css';
+import { ThemeProvider } from "./context/theme.context";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+import { ToastContainer } from "react-toastify";
+import AppLayout from "./layouts";
+import AppRoutes from "./routes/AppRoutes";
+import AuthProvider from "./context/auth.context";
+import "react-toastify/dist/ReactToastify.css";
 
 const client = new QueryClient({
   defaultOptions: {
@@ -16,13 +16,14 @@ const client = new QueryClient({
 });
 
 const App = () => {
+  console.log(process.env.REACT_APP_BASE_URL);
   return (
     <QueryClientProvider client={client}>
       <ReactQueryDevtools initialIsOpen={true} />
       <AuthProvider>
         <ThemeProvider>
           <AppLayout>
-            <ToastContainer theme='colored' />
+            <ToastContainer theme="colored" />
             <AppRoutes />
           </AppLayout>
         </ThemeProvider>
