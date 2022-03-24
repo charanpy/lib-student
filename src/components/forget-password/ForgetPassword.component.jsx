@@ -4,7 +4,7 @@ import Button from "../shared/button/Button.component";
 import "./forgetpassword.css";
 const ForgetPasswordComponent = () => {
   const user = false;
-
+  // function to change the otp input to the next input field
   const handleChange = (e) => {
     const { maxLength, value, name } = e.target;
     const [fieldName, fieldIndex] = name.split("-");
@@ -29,6 +29,7 @@ const ForgetPasswordComponent = () => {
   return (
     <div>
       {user ? (
+        //Email vertification page
         <form
           className="flex flex-col justify-center items-center space-y-8 min-h-screen"
           // onSubmit={onHandleSubmit}
@@ -55,6 +56,8 @@ const ForgetPasswordComponent = () => {
           </div>
         </form>
       ) : (
+        // End of Email verification page
+        // otp verification page
         <form
           className="flex flex-col justify-center items-center space-y-8 min-h-screen"
           // onSubmit={onHandleSubmit}
@@ -66,6 +69,7 @@ const ForgetPasswordComponent = () => {
             <p className="text-slate-500">Enter the OTP received in Email</p>
           </div>
           <div>
+            {/*otp input 1 */}
             <input
               // ref={rollNoRef}
               className={`otpInput m-2 text-center ${darkInputCls}`}
@@ -77,6 +81,7 @@ const ForgetPasswordComponent = () => {
               name="otpInput-1"
               onChange={handleChange}
             />
+            {/*otp input 2 */}
             <input
               // ref={rollNoRef}
               className={`otpInput text-center m-2 ${darkInputCls}`}
@@ -88,6 +93,7 @@ const ForgetPasswordComponent = () => {
               name="otpInput-2"
               onChange={handleChange}
             />
+            {/*otp input 3 */}
             <input
               // ref={rollNoRef}
               className={`otpInput m-2 in-range:border-green-500 text-center ${darkInputCls}`}
@@ -99,6 +105,7 @@ const ForgetPasswordComponent = () => {
               name="otpInput-3"
               onChange={handleChange}
             />
+            {/*otp input 4 */}
             <input
               // ref={rollNoRef}
               className={`otpInput m-2 text-center ${darkInputCls}`}
