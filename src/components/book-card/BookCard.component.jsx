@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import DownArrowSVG from '../shared/svg/DownArrow.svg';
 import './book-card.css';
 import BookDetails from './BookDetails.component';
@@ -54,7 +54,8 @@ const BookCard = ({ book }) => {
   );
 };
 
-const BookCardComponent = ({ books }) => {
+const BookCardComponent = memo(({ books }) => {
+  console.log('Book Card', books?.length);
   return (
     <>
       {books.map((book) => (
@@ -62,6 +63,6 @@ const BookCardComponent = ({ books }) => {
       ))}
     </>
   );
-};
+});
 
 export default BookCardComponent;

@@ -20,11 +20,11 @@ const BookDetails = ({ open, toggle, book }) => {
         </span>
         <div className='row centerAll'>
           <img
-            src='/defaultBook.jpg'
+            src={book?.image?.url || '/defaultBook.jpg'}
             alt='book'
             className='object-cover rounded-md shadow-lg'
-            width={200}
-            height={200}
+            width={150}
+            height={150}
           />
         </div>
         <div className='space-y-2'>

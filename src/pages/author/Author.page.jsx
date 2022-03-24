@@ -3,6 +3,7 @@ import useAuthor from './useAuthor';
 
 const AuthorPage = () => {
   const [authorCards] = useAuthor();
+
   return (
     <div className='wrapper dark:bg-inherit'>
       <section className='pt-10'>

@@ -16,7 +16,7 @@ const Carousel = ({ items = [], Component, cardHeight, cardWidth }) => {
       <div
         onClick={handlePrevious}
         role='button'
-        className='absolute left-[50px]'
+        className='md:absolute md:left-[50px]'
       >
         <LeftArrowSVG />
       </div>
@@ -42,7 +42,11 @@ const Carousel = ({ items = [], Component, cardHeight, cardWidth }) => {
           </motion.figure>
         ))}
       </AnimatePresence>
-      <div onClick={handleNext} role='button' className='absolute right-[50px]'>
+      <div
+        onClick={handleNext}
+        role='button'
+        className='md:absolute md:right-[50px]'
+      >
         <RightArrowSVG />
       </div>
     </div>
