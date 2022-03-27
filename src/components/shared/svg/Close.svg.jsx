@@ -1,11 +1,11 @@
 import React from 'react';
 
-const CloseSVG = () => {
+const CloseSVG = ({ className }) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
       height='24px'
-      className='dark:fill-white'
+      className={`${className} dark:fill-white`}
       viewBox='0 0 24 24'
       width='24px'
       fill='#000000'

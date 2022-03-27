@@ -28,17 +28,18 @@ const fetchFilteredBook = (page, category, author, title) => {
     ).request();
 };
 
-const useBook = () => {
+const useBook = (authorId) => {
+  console.log(authorId, 4);
   const [page] = useState(1);
   const [title, setTitle] = useState('');
   const searchTerm = useDebounce(title, 600);
   const [author, setAuthor] = useState({
-    id: '',
+    id: authorId || '',
     name: '',
   });
   const [category, setCategory] = useState('');
 
-  const { data, isLoading } = useQuery('dashboard', fetchDashboardData);
+  const { data, isLoading } = useQuery('books', fetchDashboardData);
   const { data: authors } = useQuery('author', fetchAuthor, {
     enabled: !!data,
   });

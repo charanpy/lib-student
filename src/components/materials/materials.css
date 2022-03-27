@@ -1,0 +1,40 @@
+.material {
+  position: relative;
+}
+.material::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 90;
+}
+
+.material:hover::after {
+  height: 100%;
+}
+
+.materialPopup {
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100000000000000000;
+}
+
+@media (max-width: 350px) {
+  .material {
+    height: 100% !important;
+    width: 100% !important;
+  }
+}
+
+.material:hover .materialClick {
+  display: flex;
+}
+
+.materialClick {
+  top: 40%;
+  left: 45%;
+  background: transparent;
+  z-index: 100;
+}

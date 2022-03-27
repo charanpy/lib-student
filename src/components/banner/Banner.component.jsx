@@ -8,7 +8,7 @@ const Banner = () => {
   return (
     <div className='mainContainer banner row dark:bg-[#0E1924]'>
       <section className='bannerHeader'>
-        <h1 className='text-3xl text-slate-900 font-normal dark:text-white 2xl:text-4xl'>
+        <h1 className='text-3xl text-slate-900 font-normal dark:text-white 2xl:text-4xl break-words'>
           E-Library Student Panel
         </h1>
         <p className='text-slate-600 leading-8 dark:text-slate-400 lg:w-2/3 2xl:text-xl 2xl:leading-10'>

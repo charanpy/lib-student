@@ -62,3 +62,18 @@ span {
 .wrapper {
   @apply my-[70px] px-5 md:px-20 min-h-screen space-y-6 md:space-y-10 bg-slate-50;
 }
+
+button {
+  outline: none !important;
+}
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  word-break: normal;
+}
+
+#scroller {
+  overflow: hidden !important;
+}
