@@ -18,6 +18,7 @@ const IssueBook = lazy(() =>
   import('../components/issued-book/BookIssued.component')
 );
 const Materials = lazy(() => import('../pages/materials/Materials.page'));
+const ProfilePage = lazy(() => import('../pages/profile/Profile.page'));
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -89,6 +90,14 @@ const AppRoutes = () => {
               element={
                 <PageTransition>
                   <Materials />
+                </PageTransition>
+              }
+            />
+            <Route
+              path='/profile'
+              element={
+                <PageTransition>
+                  <ProfilePage />
                 </PageTransition>
               }
             />

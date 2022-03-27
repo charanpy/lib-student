@@ -24,7 +24,7 @@ const MaterialCard = ({ material }) => {
           className='text-green-500 row space-x-2 items-center'
           onClick={() => setOpen((toggle) => !toggle)}
         >
-          {formatDate(material?.createdAt)} <DownArrowSVG />
+          {formatDate(material?.createdAt)} <DownArrowSVG open={open} />
         </p>
       </div>
 

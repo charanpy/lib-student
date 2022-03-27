@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 import UserSVG from '../../components/shared/svg/User.svg';
 import { useAuth } from '../../context/auth.context';
 import navItems, { liStyle } from './helper';
-import ToggleTheme from './ToggleTheme';
 
 const NavList = () => {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   return (
     <>
       <nav>
@@ -16,18 +15,12 @@ const NavList = () => {
               <li className={liStyle}>{name}</li>
             </Link>
           ))}
-          <ToggleTheme />
           {!user && (
             <Link to={'/login'}>
               <li className={liStyle}>Login</li>
             </Link>
           )}
 
-          {user && (
-            <li className={liStyle} onClick={logout}>
-              Logout
-            </li>
-          )}
           {user && (
             <Link to='/profile'>
               <li className={`${liStyle} row centerAll`}>
