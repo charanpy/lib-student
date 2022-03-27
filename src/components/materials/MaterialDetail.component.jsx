@@ -13,7 +13,7 @@ const MaterialDetail = ({ open, description, file, title }) => {
 
         <div className='w-[250px] h-[150px] rounded-lg overflow-hidden material'>
           <iframe
-            src={file}
+            src={`http://docs.google.com/gview?url=${file}&embedded=true`}
             title={title || 'material'}
             className='h-full overflow-hidden'
             style={{ width: '107%' }}
@@ -33,7 +33,13 @@ const MaterialDetail = ({ open, description, file, title }) => {
           >
             <CloseSVG className='fill-red-500 dark:fill-red-500' />
           </div>
-          <iframe src={file} title={title} width='100%' height='100%' />
+          {/* <iframe src={file} title={title} width='100%' height='100%' /> */}
+          <iframe
+            src={`http://docs.google.com/gview?url=${file}&embedded=true`}
+            title={title}
+            width='100%'
+            height='100%'
+          />
         </div>
       )}
     </Popup>

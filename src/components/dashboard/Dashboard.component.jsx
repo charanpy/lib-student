@@ -13,7 +13,7 @@ const Dashboard = () => {
   const { data, isLoading } = useQuery('dashboard', fetchDashboardData);
   return (
     <>
-      <div className='row justify-center md:justify-between'>
+      <div className='flex flex-col md:flex-row md:flex-wrap justify-center md:justify-between px-2'>
         <DashboardCard
           className='bg-[#2D33B3]'
           Icon={Books}
