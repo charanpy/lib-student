@@ -8,6 +8,7 @@ import './profile.css';
 const UpdatePassword = () => {
   const { updatePassword } = useAuth();
   const passwordRef = useRef();
+  const oldPasswordRef = useRef();
   const [modal, setModal] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -17,7 +18,15 @@ const UpdatePassword = () => {
 
   const handleSubmit = () => {
     toggleLoader();
-    return updatePassword(passwordRef?.current?.value, toggleLoader, false);
+    return updatePassword(
+      {
+        password: passwordRef?.current?.value,
+        oldPassword: oldPasswordRef?.current?.value,
+      },
+      toggleLoader,
+      false,
+      true
+    );
   };
   return (
     <>
@@ -42,8 +51,15 @@ const UpdatePassword = () => {
               className='authInput'
               type='password'
               required
+              ref={oldPasswordRef}
+              placeholder='Current Password'
+            />
+            <input
+              className='authInput'
+              type='password'
+              required
               ref={passwordRef}
-              placeholder='Password'
+              placeholder='New Password'
             />
 
             <Button

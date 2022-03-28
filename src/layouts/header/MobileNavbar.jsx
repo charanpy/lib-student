@@ -21,7 +21,7 @@ const MobileNavbar = () => {
           <div className='absolute top-2 right-2' onClick={toggleModal}>
             <CloseSVG />
           </div>
-          <NavList />
+          <NavList toggleModal={toggleModal} />
         </div>
       </Popup>
     </>

@@ -12,7 +12,13 @@ const Carousel = ({ items = [], Component, cardHeight, cardWidth }) => {
   const [data, handleNext, handlePrevious] = useCarousel(items);
   console.log('render');
   return (
-    <div className='overflow-hidden flex flex-row justify-between items-center h-[400px]'>
+    <div
+      className='overflow-hidden flex flex-row justify-between items-center'
+      style={{
+        minHeight: `${cardHeight || 200}px`,
+        minWidth: `${cardWidth || 150}px`,
+      }}
+    >
       <div
         onClick={handlePrevious}
         role='button'

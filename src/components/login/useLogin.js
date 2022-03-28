@@ -21,7 +21,9 @@ const useLogin = () => {
     e.preventDefault();
     try {
       if (updatePassword)
-        return updatePasswordAPI(updatePasswordRef?.current?.value);
+        return updatePasswordAPI({
+          password: updatePasswordRef?.current?.value,
+        });
       const rollNumber = rollNoRef?.current?.value;
       const password = passwordRef?.current?.value;
 

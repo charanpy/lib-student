@@ -4,12 +4,18 @@ import './recent-books.css';
 
 const BookCard = ({ item, height, width }) => {
   return (
-    <Link to={`/author/${item?.author}`}>
+    <Link
+      to={`/author/${item?.author}`}
+      style={{
+        width: width + 'px',
+        height: height + 'px',
+      }}
+    >
       <img
         src={item?.image?.url || '/defaultBook.jpg'}
         loading='lazy'
         alt='book'
-        className='bookCardImage'
+        className='bookCardImage rounded-lg'
         style={{
           width: width + 'px',
           height: height + 'px',

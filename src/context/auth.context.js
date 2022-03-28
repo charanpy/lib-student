@@ -58,19 +58,28 @@ const AuthProvider = ({ children }) => {
     return data;
   };
 
-  const updatePassword = async (password, fn, toNavigate = true) => {
+  const updatePassword = async (
+    password,
+    fn,
+    toNavigate = true,
+    profile = false
+  ) => {
     try {
-      if (!password) return toast.error('Invalid credentials');
+      if (!profile && !password) return toast.error('Invalid credentials');
+      if (profile) {
+        if (!password?.password || !password?.oldPassword)
+          return toast.error('Invalid credentials');
+      }
       await new ApiRequest(
-        '/student/password',
+        `/student/password${profile ? '/profile' : ''}`,
         'POST',
-        { password },
+        password,
         null,
         true
       ).request();
       toast.success('Password updated');
     } catch (error) {
-      toast.error('Try again after some times');
+      toast.error(profile ? error?.message : 'Try again after some times');
     } finally {
       fn();
       if (toNavigate) {
