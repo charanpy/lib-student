@@ -1,0 +1,34 @@
+.card {
+  width: 300px;
+  position: relative;
+}
+
+.developer-image {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50px;
+  left: 35%;
+  top: -15%;
+  filter: drop-shadow(0 0 0.75rem);
+}
+
+.socialmedia-icons .svg-icons {
+  height: 25px;
+}
+.testimonialCard {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow: auto;
+}
+.testimonialCard::-webkit-scrollbar {
+  display: none;
+}
+@media screen and (max-width: 320px) {
+  .card {
+    width: 100%;
+  }
+  .developer-image {
+    left: 30%;
+  }
+}

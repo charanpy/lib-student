@@ -1,18 +1,19 @@
-import { lazy, Suspense } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
-import PrivateRoute from './PrivateRoute';
-import PageTransition from './PageTransition';
-import FullPageLoader from '../components/shared/loader/FullPageLoader.component';
-import Home from '../pages/home/Home.page';
-import ErrorBoundary from '../components/ErrorBoundary';
+import { lazy, Suspense } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import PrivateRoute from "./PrivateRoute";
+import PageTransition from "./PageTransition";
+import FullPageLoader from "../components/shared/loader/FullPageLoader.component";
+import Home from "../pages/home/Home.page";
+import ErrorBoundary from "../components/ErrorBoundary";
+import ForgetPasswordComponent from "../components/forget-password/ForgetPassword.component";
 
-const Dashboard = lazy(() => import('../pages/dashboard/Dashboard.page'));
-const Login = lazy(() => import('../pages/login/Login.page'));
-const BooksPage = lazy(() => import('../pages/books/Books.page'));
-const AuthorPage = lazy(() => import('../pages/author/Author.page'));
+const Dashboard = lazy(() => import("../pages/dashboard/Dashboard.page"));
+const Login = lazy(() => import("../pages/login/Login.page"));
+const BooksPage = lazy(() => import("../pages/books/Books.page"));
+const AuthorPage = lazy(() => import("../pages/author/Author.page"));
 const AuthorBooksPage = lazy(() =>
-  import('../pages/author-books/AuthorBooks.page')
+  import("../pages/author-books/AuthorBooks.page")
 );
 
 const AppRoutes = () => {
@@ -23,7 +24,7 @@ const AppRoutes = () => {
         <AnimatePresence exitBeforeEnter initial={false}>
           <Routes location={location} key={location.pathname}>
             <Route
-              path='/'
+              path="/"
               element={
                 <PageTransition>
                   <Home />
@@ -31,7 +32,7 @@ const AppRoutes = () => {
               }
             />
             <Route
-              path='/login'
+              path="/login"
               element={
                 <PageTransition>
                   <Login />
@@ -39,7 +40,7 @@ const AppRoutes = () => {
               }
             />
             <Route
-              path='/dashboard'
+              path="/dashboard"
               element={
                 <PrivateRoute>
                   <PageTransition>
@@ -49,7 +50,7 @@ const AppRoutes = () => {
               }
             />
             <Route
-              path='/books'
+              path="/books"
               element={
                 // <PrivateRoute>
                 <PageTransition>
@@ -59,7 +60,7 @@ const AppRoutes = () => {
               }
             />
             <Route
-              path='/author'
+              path="/author"
               element={
                 // <PrivateRoute>
                 <PageTransition>
@@ -69,10 +70,18 @@ const AppRoutes = () => {
               }
             />
             <Route
-              path='/author/:authorId'
+              path="/author/:authorId"
               element={
                 <PageTransition>
                   <AuthorBooksPage />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/forgetpassword"
+              element={
+                <PageTransition>
+                  <ForgetPasswordComponent />
                 </PageTransition>
               }
             />
