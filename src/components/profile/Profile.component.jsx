@@ -1,5 +1,6 @@
 import React from 'react';
 import ToggleTheme from '../../layouts/header/ToggleTheme';
+import UpdatePassword from './UpdatePassword.component';
 import { darkInputCls } from '../login/Login.component';
 import ProfileBooks from './ProfileBooks.component';
 
@@ -13,6 +14,7 @@ const ProfileComponent = ({ user }) => {
         alt='profile'
         className='object-cover'
       />
+      <UpdatePassword />
       <div className='cursor-pointer py-2'>
         <ToggleTheme />
       </div>

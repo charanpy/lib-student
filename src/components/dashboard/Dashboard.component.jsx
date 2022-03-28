@@ -28,13 +28,13 @@ const Dashboard = () => {
           header='Returned Books'
           count={data?.[1] || 0}
           isLoading={isLoading}
-          path='/dashboard/return-book'
+          path='/return-book'
         />
         <DashboardCard
           className='bg-red-500'
           Icon={PendingSVG}
           header='Pending'
-          path='/dashboard/issue-book'
+          path='/issue-book'
           count={data?.[2] || 0}
           isLoading={isLoading}
           onClick={fetch}

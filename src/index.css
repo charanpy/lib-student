@@ -43,8 +43,9 @@ body {
   height: 100%;
 }
 
-.Toastify__toast-container {
-  z-index: 1000000000001;
+.Toastify__toast-container,
+.stack {
+  z-index: 1000000000001 !important;
 }
 
 h1,

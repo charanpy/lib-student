@@ -52,10 +52,10 @@ const AppRoutes = () => {
                 </PageTransition>
                 // </PrivateRoute>
               }
-            >
-              <Route path='return-book' element={<ReturnBook />} />
-              <Route path='issue-book' element={<IssueBook />} />
-            </Route>
+            />
+            <Route path='/return-book' element={<ReturnBook />} />
+            <Route path='/issue-book' element={<IssueBook />} />
+
             <Route
               path='/books'
               element={

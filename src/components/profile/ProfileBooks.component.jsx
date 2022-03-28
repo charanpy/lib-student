@@ -31,7 +31,7 @@ const ProfileBooks = () => {
           <span className='text-green-500 font-bold'>Returned Books</span>:{' '}
           {data?.[1] || 0}
         </p>
-        <Link to='/dashboard/return-book'>
+        <Link to='/return-book'>
           <img src='/launch.svg' alt='visit' style={{ height: '18px' }} />
         </Link>
       </div>
@@ -42,7 +42,7 @@ const ProfileBooks = () => {
           <span className='text-green-500 font-bold'>Issued Books</span>:{' '}
           {data?.[2] || 0}
         </p>
-        <Link to='/dashboard/issue-book'>
+        <Link to='/issue-book'>
           <img src='/launch.svg' alt='visit' style={{ height: '18px' }} />
         </Link>
       </div>
