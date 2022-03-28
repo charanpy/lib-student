@@ -15,7 +15,13 @@ const BookCard = ({ item, height, width }) => {
           height: height + 'px',
         }}
       />
-      <figcaption className='text-slate-700 text-center my-2t; dark:text-slate-200 text-lg 2xl:text-xl capitalize'>
+      <figcaption
+        style={{
+          width: width + 'px',
+          height: height + 'px',
+        }}
+        className='truncate text-slate-700 text-center my-2t; dark:text-slate-200 text-lg 2xl:text-xl capitalize'
+      >
         {item?.title}
       </figcaption>
     </Link>

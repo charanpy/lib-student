@@ -16,17 +16,20 @@ const fetchReturnedBook = () =>
 
 const ReturnBook = () => {
   const { data, isLoading } = useQuery(['return-book'], fetchReturnedBook);
-  if (isLoading) return <Loader />;
   return (
     <Container header='Returned Books'>
-      {data?.map((book) => (
-        <BookCard
-          key={book?.bookId?._id}
-          book={book?.bookId}
-          issueDate={book?.issuedDate}
-          expiryDate={book?.dueDate}
-        />
-      ))}
+      {!isLoading ? (
+        data?.map((book) => (
+          <BookCard
+            key={book?.bookId?._id}
+            book={book?.bookId}
+            issueDate={book?.issuedDate}
+            expiryDate={book?.dueDate}
+          />
+        ))
+      ) : (
+        <Loader />
+      )}
     </Container>
   );
 };
