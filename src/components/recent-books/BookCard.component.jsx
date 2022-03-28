@@ -7,8 +7,8 @@ const BookCard = ({ item, height, width }) => {
     <Link
       to={`/author/${item?.author}`}
       style={{
-        width: width + 'px',
-        height: height + 'px',
+        width: +width + 50 + 'px',
+        height: +height + 50 + 'px',
       }}
     >
       <img
