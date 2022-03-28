@@ -12,9 +12,14 @@ const Dashboard = lazy(() => import("../pages/dashboard/Dashboard.page"));
 const Login = lazy(() => import("../pages/login/Login.page"));
 const BooksPage = lazy(() => import("../pages/books/Books.page"));
 const AuthorPage = lazy(() => import("../pages/author/Author.page"));
-const AuthorBooksPage = lazy(() =>
-  import("../pages/author-books/AuthorBooks.page")
+const ReturnBook = lazy(() =>
+  import("../components/returned-book/ReturnedBook.component")
 );
+const IssueBook = lazy(() =>
+  import("../components/issued-book/BookIssued.component")
+);
+const Materials = lazy(() => import("../pages/materials/Materials.page"));
+const ProfilePage = lazy(() => import("../pages/profile/Profile.page"));
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -42,13 +47,16 @@ const AppRoutes = () => {
             <Route
               path="/dashboard"
               element={
-                <PrivateRoute>
-                  <PageTransition>
-                    <Dashboard />
-                  </PageTransition>
-                </PrivateRoute>
+                // <PrivateRoute>
+                <PageTransition>
+                  <Dashboard />
+                </PageTransition>
+                // </PrivateRoute>
               }
             />
+            <Route path="/return-book" element={<ReturnBook />} />
+            <Route path="/issue-book" element={<IssueBook />} />
+
             <Route
               path="/books"
               element={
@@ -73,7 +81,24 @@ const AppRoutes = () => {
               path="/author/:authorId"
               element={
                 <PageTransition>
-                  <AuthorBooksPage />
+                  {/* <AuthorBooksPage /> */}
+                  <BooksPage />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/materials"
+              element={
+                <PageTransition>
+                  <Materials />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <PageTransition>
+                  <ProfilePage />
                 </PageTransition>
               }
             />

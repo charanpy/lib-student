@@ -1,0 +1,16 @@
+.dashboardCard {
+  /* @apply flex mr-4 flex-col justify-center items-center space-y-4 rounded-lg shadow-lg w-1/2 md:w-1/4 py-10;
+   */
+  @apply items-center w-[360px] lg:w-[360px] h-[150px] lg:h-[150px] mt-[27px] lg:mt-[36px] pb-6 flex flex-col py-4 justify-center rounded-lg items-center space-y-2;
+}
+
+.dashboardCard svg {
+  fill: white !important;
+}
+
+@media (max-width: 767px) {
+  .dashboardCard {
+    width: 100% !important;
+    margin: inherit 0 !important;
+  }
+}

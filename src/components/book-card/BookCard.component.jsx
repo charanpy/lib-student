@@ -3,7 +3,16 @@ import DownArrowSVG from '../shared/svg/DownArrow.svg';
 import './book-card.css';
 import BookDetails from './BookDetails.component';
 
-const BookCard = ({ book }) => {
+export const formatDate = (date) => {
+  const formatDate = new Date(date);
+  return `${formatDate?.getFullYear()}/${formatDate?.getMonth()}/${formatDate?.getDay()}`;
+};
+
+export const formatDueDate = (date, issue = false) => {
+  return `${issue ? 'Issue' : 'Due'}- ${formatDate(date)}`;
+};
+
+export const BookCard = ({ book, expiryDate, issueDate }) => {
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
@@ -37,8 +46,20 @@ const BookCard = ({ book }) => {
         </figcaption>
       </div>
       <div className='row justify-start items-center w-1/4 bookCategory'>
-        <div className='py-1 category px-2 m-2 text-sm rounded-md bg-gray-700 text-white 2xl:text-xl'>
-          {book?.category}
+        {issueDate && (
+          <div
+            className={`py-1 category px-2 m-2 text-sm rounded-md bg-green-500
+          } text-white 2xl:text-xl`}
+          >
+            {formatDueDate(issueDate, true)}
+          </div>
+        )}
+        <div
+          className={`py-1 category px-2 m-2 text-sm rounded-md bg-gray-700 ${
+            expiryDate ? 'bg-red-500' : ''
+          } text-white 2xl:text-xl`}
+        >
+          {expiryDate ? formatDueDate(expiryDate) : book?.category}
         </div>
       </div>
       <div className='row items-center bookInfo'>

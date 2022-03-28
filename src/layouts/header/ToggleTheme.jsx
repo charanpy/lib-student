@@ -15,7 +15,7 @@ const ToggleTheme = () => {
         height={24}
         className='mr-2'
       />
-      Theme
+      <span className='capitalize'>{toggler} Theme</span>
     </li>
   );
 };

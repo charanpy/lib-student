@@ -35,7 +35,7 @@ const AuthProvider = ({ children }) => {
     } catch (error) {
       console.log('No token');
       localStorage.removeItem('token');
-      setAuth((prev) => ({ ...prev, loading: false }));
+      setAuth((prev) => ({ ...prev, loading: false, user: null }));
     }
   };
 
@@ -58,6 +58,24 @@ const AuthProvider = ({ children }) => {
     return data;
   };
 
+  const updatePassword = async (password) => {
+    try {
+      if (!password) return toast.error('Invalid credentials');
+      await new ApiRequest(
+        '/student/password',
+        'POST',
+        { password },
+        null,
+        true
+      ).request();
+      toast.success('Password updated');
+    } catch (error) {
+      toast.error('Try again after some times');
+    } finally {
+      navigate('/dashboard');
+    }
+  };
+
   const logout = async () => {
     localStorage.removeItem('token');
     setAuth((prev) => ({ ...prev, user: null }));
@@ -66,7 +84,7 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, updatePassword }}>
       {children}
     </AuthContext.Provider>
   );

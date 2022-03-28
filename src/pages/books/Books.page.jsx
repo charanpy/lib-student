@@ -1,8 +1,11 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import useBook from './useBook';
 
 const BooksPage = () => {
-  const [bookFilters] = useBook();
+  const params = useParams();
+
+  const [bookFilters] = useBook(params?.authorId);
   return (
     <div className='wrapper dark:bg-inherit'>
       <section className='pt-10'>
