@@ -13,7 +13,7 @@ const MaterialDetail = ({ open, description, file, title }) => {
 
         <div className='w-[250px] h-[150px] rounded-lg overflow-hidden material'>
           <iframe
-            src={`http://docs.google.com/gview?url=${file}&embedded=true`}
+            src={`${file}`}
             title={title || 'material'}
             className='h-full overflow-hidden'
             style={{ width: '107%' }}

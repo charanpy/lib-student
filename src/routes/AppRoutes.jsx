@@ -19,6 +19,7 @@ const IssueBook = lazy(() =>
 );
 const Materials = lazy(() => import('../pages/materials/Materials.page'));
 const ProfilePage = lazy(() => import('../pages/profile/Profile.page'));
+const YoutubePage = lazy(() => import('../pages/youtube/Youtube.page'));
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -98,6 +99,14 @@ const AppRoutes = () => {
               element={
                 <PageTransition>
                   <ProfilePage />
+                </PageTransition>
+              }
+            />
+            <Route
+              path='/youtube'
+              element={
+                <PageTransition>
+                  <YoutubePage />
                 </PageTransition>
               }
             />

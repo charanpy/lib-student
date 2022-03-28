@@ -58,7 +58,7 @@ const AuthProvider = ({ children }) => {
     return data;
   };
 
-  const updatePassword = async (password) => {
+  const updatePassword = async (password, fn, toNavigate = true) => {
     try {
       if (!password) return toast.error('Invalid credentials');
       await new ApiRequest(
@@ -72,7 +72,10 @@ const AuthProvider = ({ children }) => {
     } catch (error) {
       toast.error('Try again after some times');
     } finally {
-      navigate('/dashboard');
+      fn();
+      if (toNavigate) {
+        navigate('/dashboard');
+      }
     }
   };
 

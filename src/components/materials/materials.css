@@ -28,6 +28,12 @@
   }
 }
 
+@media (max-width: 767px) {
+  .material:hover::after {
+    height: 0%;
+  }
+}
+
 .material:hover .materialClick {
   display: flex;
 }

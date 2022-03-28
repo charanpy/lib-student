@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import ApiRequest from '../../lib/ApiRequest';
 import { BookCard } from '../book-card/BookCard.component';
+import Container from '../shared/container/Container';
 import Loader from '../shared/loader/Loader.component';
 
 const fetchIssuedBook = () =>
@@ -17,10 +18,7 @@ const BookIssue = () => {
   const { data, isLoading } = useQuery(['issue-book'], fetchIssuedBook);
   if (isLoading) return <Loader />;
   return (
-    <div className='space-y-4'>
-      <h1 className='text-slate-900 dark:text-white 2xl:text-xl'>
-        Issued Books
-      </h1>
+    <Container header='Issued Books'>
       {data?.map((book) => (
         <BookCard
           key={book?.bookId?._id}
@@ -29,7 +27,7 @@ const BookIssue = () => {
           expiryDate={book?.dueDate}
         />
       ))}
-    </div>
+    </Container>
   );
 };
 
