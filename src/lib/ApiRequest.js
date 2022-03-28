@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 class ApiRequest {
   constructor(route, method, payload, isImage = false, isAuth = true) {
     this.route = route;
@@ -41,6 +43,9 @@ class ApiRequest {
             body: JSON.stringify(this.payload),
           });
 
+    if (res.status === 401) {
+      return toast.error('Please Login to access these resources');
+    }
     const data = await res.json();
 
     if (data?.status === 'error' || data?.status === 'fail') {

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import ApiRequest from '../../lib/ApiRequest';
 import Popup from '../shared/popup/Popup.component';
 
 const BookDetailText = ({ name, value }) => {
@@ -11,7 +12,13 @@ const BookDetailText = ({ name, value }) => {
   );
 };
 
-const BookDetails = ({ open, toggle, book }) => {
+const BookDetails = ({ open, toggle, book, id }) => {
+  useEffect(() => {
+    if (!open) return;
+    (async () => {
+      await new ApiRequest(`/book/visit/${id}`, 'POST').request();
+    })();
+  }, [id, open]);
   return (
     <Popup open={open} className='bookDetailPopup row centerAll'>
       <div className='bookDetailCard'>

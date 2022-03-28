@@ -14,6 +14,6 @@ const navItems = [
 ];
 
 export const liStyle =
-  'text-slate-700 dark:text-slate-200 hover:text-blue-600 hover:underline transition-all duration-300 2xl:text-xl';
+  'text-slate-700 dark:text-slate-200 hover:text-blue-600 hover:underline transition-all duration-300';
 
 export default navItems;

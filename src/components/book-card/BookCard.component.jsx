@@ -70,7 +70,12 @@ export const BookCard = ({ book, expiryDate, issueDate }) => {
           View Details <DownArrowSVG />
         </button>
       </div>
-      <BookDetails open={modal} toggle={toggleModal} book={book} />
+      <BookDetails
+        open={modal}
+        toggle={toggleModal}
+        book={book}
+        id={book?._id}
+      />
     </div>
   );
 };
