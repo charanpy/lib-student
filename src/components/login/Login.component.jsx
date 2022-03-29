@@ -6,6 +6,8 @@ import './login.css';
 export const darkInputCls =
   'dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:ring-blue-500 focus:border-blue-500';
 
+const showMessage = (updatePassword) => (updatePassword ? 'Update' : 'LOGIN');
+
 const Login = () => {
   const [
     rollNoRef,
@@ -85,7 +87,7 @@ const Login = () => {
             disabled={loading}
             className='w-full p-2 rounded-lg text-white bg-blue-500 2xl:text-xl'
           >
-            {loading ? 'LOADING' : updatePassword ? 'Update' : 'LOGIN'}
+            {loading ? 'LOADING' : showMessage(updatePassword)}
           </Button>
         </div>
       </form>

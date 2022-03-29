@@ -9,8 +9,8 @@ const ProfileComponent = ({ user }) => {
     <div className='space-y-4 flex flex-col items-center px-1'>
       <img
         src={user?.image?.url || '/user.png'}
-        width='250px'
-        height='250px'
+        width='150px'
+        height='150px'
         alt='profile'
         className='object-cover'
       />

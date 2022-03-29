@@ -11,6 +11,10 @@ const breakpointsData = [
     slides: 1,
   },
   {
+    width: 850,
+    slides: 2,
+  },
+  {
     width: 1024,
     slides: 3,
   },

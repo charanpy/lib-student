@@ -1,12 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
+import { useQuery } from 'react-query';
+import ApiRequest from '../../lib/ApiRequest';
 import { formatDate } from '../book-card/BookCard.component';
 import DownArrowSVG from '../shared/svg/DownArrow.svg';
 import MaterialSVG from '../shared/svg/Material.svg';
 import MaterialDetail from './MaterialDetail.component';
-
 import './materials.css';
 
-const MaterialCard = ({ material }) => {
+const fetchFileView = (id) => () =>
+  new ApiRequest(`/file-view/${id}`, 'GET', null, null, true).request();
+
+const MaterialCard = ({ material, restrict = false }) => {
+  const { data, refetch } = useQuery(
+    ['materialPrivate', material?._id],
+    fetchFileView(material?._id),
+    {
+      enabled: false,
+    }
+  );
   const [open, setOpen] = useState(false);
 
   return (
@@ -34,9 +45,12 @@ const MaterialCard = ({ material }) => {
         file={material?.file?.url}
         title={material?.title}
         description={material?.description}
+        restrict={restrict}
+        refetch={refetch}
+        data={data}
       ></MaterialDetail>
     </section>
   );
 };
 
-export default MaterialCard;
+export default memo(MaterialCard);

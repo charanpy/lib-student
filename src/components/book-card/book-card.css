@@ -31,23 +31,3 @@
   margin: 0 !important;
   padding: 2rem;
 }
-
-.bookDetailCard {
-  @apply flex flex-col bg-gray-200 rounded-lg shadow-lg w-[300px] min-h-[300px] p-2 space-y-4 relative;
-}
-
-.bookDetailWrap {
-  @apply m-2;
-}
-
-.bookDetailClose {
-  @apply absolute right-2 top-2 text-red-500 text-xl cursor-pointer;
-}
-
-.bookDetailHeader {
-  @apply font-semibold 2xl:text-xl capitalize;
-}
-
-.bookDetailData {
-  @apply text-slate-900 2xl:text-xl capitalize;
-}

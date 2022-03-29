@@ -47,67 +47,89 @@ const AppRoutes = () => {
             <Route
               path='/dashboard'
               element={
-                // <PrivateRoute>
-                <PageTransition>
-                  <Dashboard />
-                </PageTransition>
-                // </PrivateRoute>
+                <PrivateRoute>
+                  <PageTransition>
+                    <Dashboard />
+                  </PageTransition>
+                </PrivateRoute>
               }
             />
-            <Route path='/return-book' element={<ReturnBook />} />
-            <Route path='/issue-book' element={<IssueBook />} />
+            <Route
+              path='/return-book'
+              element={
+                <PrivateRoute>
+                  <ReturnBook />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path='/issue-book'
+              element={
+                <PrivateRoute>
+                  <IssueBook />
+                </PrivateRoute>
+              }
+            />
 
             <Route
               path='/books'
               element={
-                // <PrivateRoute>
-                <PageTransition>
-                  <BooksPage />
-                </PageTransition>
-                // </PrivateRoute>
+                <PrivateRoute>
+                  <PageTransition>
+                    <BooksPage />
+                  </PageTransition>
+                </PrivateRoute>
               }
             />
             <Route
               path='/author'
               element={
-                // <PrivateRoute>
-                <PageTransition>
-                  <AuthorPage />
-                </PageTransition>
-                // </PrivateRoute>
+                <PrivateRoute>
+                  <PageTransition>
+                    <AuthorPage />
+                  </PageTransition>
+                </PrivateRoute>
               }
             />
             <Route
               path='/author/:authorId'
               element={
-                <PageTransition>
-                  {/* <AuthorBooksPage /> */}
-                  <BooksPage />
-                </PageTransition>
+                <PrivateRoute>
+                  <PageTransition>
+                    {/* <AuthorBooksPage /> */}
+                    <BooksPage />
+                  </PageTransition>
+                </PrivateRoute>
               }
             />
             <Route
               path='/materials'
               element={
-                <PageTransition>
-                  <Materials />
-                </PageTransition>
+                <PrivateRoute>
+                  <PageTransition>
+                    <Materials />
+                  </PageTransition>
+                </PrivateRoute>
               }
             />
             <Route
               path='/profile'
               element={
-                <PageTransition>
-                  <ProfilePage />
-                </PageTransition>
+                <PrivateRoute>
+                  <PageTransition>
+                    <ProfilePage />
+                  </PageTransition>
+                </PrivateRoute>
               }
             />
             <Route
               path='/youtube'
               element={
-                <PageTransition>
-                  <YoutubePage />
-                </PageTransition>
+                <PrivateRoute>
+                  <PageTransition>
+                    <YoutubePage />
+                  </PageTransition>
+                </PrivateRoute>
               }
             />
           </Routes>

@@ -6,9 +6,9 @@ import './header.css';
 
 const Header = () => {
   const { pathname } = useLocation();
-  if (pathname === '/login') return null;
+  if (pathname === '/login') return <div />;
   return (
-    <header className='header dark:bg-[#0E1924]'>
+    <header className={`header dark:bg-[#0E1924]`}>
       <div>
         <Link to='/'>
           <h1 className='font-semibold text-2xl 2xl:text-3xl text-slate-900 dark:text-slate-100'>

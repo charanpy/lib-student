@@ -5,9 +5,9 @@ import Popup from '../shared/popup/Popup.component';
 const BookDetailText = ({ name, value }) => {
   if (!name || !value) return null;
   return (
-    <p className='bookDetailWrap'>
-      <span className='bookDetailHeader'>{name}</span>:{' '}
-      <span className='bookDetailData'>{value}</span>
+    <p className='m-2'>
+      <span className='font-semibold 2xl:text-xl capitalize'>{name}</span>:{' '}
+      <span className='text-slate-900 2xl:text-xl capitalize'>{value}</span>
     </p>
   );
 };
@@ -21,8 +21,11 @@ const BookDetails = ({ open, toggle, book, id }) => {
   }, [id, open]);
   return (
     <Popup open={open} className='bookDetailPopup row centerAll'>
-      <div className='bookDetailCard'>
-        <span className='bookDetailClose' onClick={toggle}>
+      <div className='flex flex-col bg-gray-200 rounded-lg shadow-lg w-[300px] min-h-[300px] p-2 space-y-4 relative'>
+        <span
+          className='absolute right-2 top-2 text-red-500 text-xl cursor-pointer'
+          onClick={toggle}
+        >
           &#10006;
         </span>
         <div className='row centerAll'>
@@ -43,7 +46,7 @@ const BookDetails = ({ open, toggle, book, id }) => {
           <BookDetailText name='edition' value={book?.edition} />
           <BookDetailText name='price' value={book?.price} />
           <BookDetailText name='pages' value={book?.totalPages} />
-          <BookDetailText key='availability' value={book?.totalCount} />
+          <BookDetailText name='availability' value={book?.totalCount} />
         </div>
       </div>
     </Popup>

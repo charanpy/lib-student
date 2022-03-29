@@ -13,7 +13,7 @@ const Carousel = ({ items = [], Component, cardHeight, cardWidth }) => {
   console.log('render');
   return (
     <div
-      className='overflow-hidden flex flex-row justify-between items-center'
+      className='overflow-hidden flex flex-row justify-center items-center relative'
       style={{
         minHeight: `${cardHeight || 200}px`,
         minWidth: `${cardWidth || 150}px`,
@@ -22,7 +22,7 @@ const Carousel = ({ items = [], Component, cardHeight, cardWidth }) => {
       <div
         onClick={handlePrevious}
         role='button'
-        className='md:absolute md:left-[50px]'
+        className='md:absolute md:left-0 stack'
       >
         <LeftArrowSVG />
       </div>
@@ -32,7 +32,7 @@ const Carousel = ({ items = [], Component, cardHeight, cardWidth }) => {
             initial='hidden'
             animate='visible'
             variants={variants}
-            className={`mx-10 space-y-4 flex flex-col items-center justify-center`}
+            className={`mx-4 md:mx-10 space-y-4 flex flex-col items-center justify-center`}
             style={{
               minHeight: `${cardHeight || 200}px`,
               minWidth: `${cardWidth || 150}px`,
@@ -51,7 +51,7 @@ const Carousel = ({ items = [], Component, cardHeight, cardWidth }) => {
       <div
         onClick={handleNext}
         role='button'
-        className='md:absolute md:right-[50px]'
+        className='md:absolute md:right-0 stack'
       >
         <RightArrowSVG />
       </div>

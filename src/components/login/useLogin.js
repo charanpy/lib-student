@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { useAuth } from '../../context/auth.context';
+import { errorToaster, successToaster } from '../../lib/toast';
 
 const useLogin = () => {
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ const useLogin = () => {
       const rollNumber = rollNoRef?.current?.value;
       const password = passwordRef?.current?.value;
 
-      if (!rollNumber || !password) return toast.error('Invalid credentials');
+      if (!rollNumber || !password) return errorToaster('Invalid credentials');
       setLoading((load) => !load);
 
       const data = await login({ rollNumber, password });
@@ -35,11 +35,11 @@ const useLogin = () => {
       if (data?.message) throw new Error(data?.message);
       if (data?.student?.isDefaultPassword)
         return setUpdatePassword((show) => !show);
-      toast.success('Logged In successfully');
+      successToaster('Logged In successfully');
       navigate('/');
     } catch (error) {
       console.log(error);
-      toast.error(error?.message || 'Something went wrong');
+      errorToaster(error?.message || 'Something went wrong');
     } finally {
       setLoading(false);
     }

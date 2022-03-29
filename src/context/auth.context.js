@@ -1,8 +1,8 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import FullPageLoader from '../components/shared/loader/FullPageLoader.component';
 import ApiRequest from '../lib/ApiRequest';
+import { errorToaster, successToaster } from '../lib/toast';
 
 const AuthContext = createContext({});
 
@@ -27,6 +27,7 @@ const AuthProvider = ({ children }) => {
         true
       );
       if (!request.getToken()) throw new Error();
+
       const data = await request.request();
 
       if (data?.user) {
@@ -65,10 +66,10 @@ const AuthProvider = ({ children }) => {
     profile = false
   ) => {
     try {
-      if (!profile && !password) return toast.error('Invalid credentials');
+      if (!profile && !password) return errorToaster('Invalid credentials');
       if (profile) {
         if (!password?.password || !password?.oldPassword)
-          return toast.error('Invalid credentials');
+          return errorToaster('Invalid credentials');
       }
       await new ApiRequest(
         `/student/password${profile ? '/profile' : ''}`,
@@ -77,9 +78,9 @@ const AuthProvider = ({ children }) => {
         null,
         true
       ).request();
-      toast.success('Password updated');
+      successToaster('Password updated');
     } catch (error) {
-      toast.error(profile ? error?.message : 'Try again after some times');
+      errorToaster(profile ? error?.message : 'Try again after some times');
     } finally {
       fn();
       if (toNavigate) {
@@ -91,7 +92,7 @@ const AuthProvider = ({ children }) => {
   const logout = async () => {
     localStorage.removeItem('token');
     setAuth((prev) => ({ ...prev, user: null }));
-    toast.success('Logged out successfully');
+    successToaster('Logged out successfully');
     navigate('/login');
   };
 

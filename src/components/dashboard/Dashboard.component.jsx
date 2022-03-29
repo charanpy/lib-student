@@ -5,6 +5,9 @@ import DashboardCard from './DashboardCard.component';
 import Books from '../shared/svg/Books.svg';
 import ReturnSVG from '../shared/svg/Return.svg';
 import PendingSVG from '../shared/svg/Pending.svg';
+import UserSVG from '../shared/svg/User.svg';
+import VideoSVG from '../shared/svg/Video.svg';
+import MaterialSVG from '../shared/svg/Material.svg';
 
 const fetchDashboardData = () =>
   new ApiRequest('/book/dashboard', 'GET', null, null, true).request();
@@ -23,7 +26,7 @@ const Dashboard = () => {
           path='/books'
         />
         <DashboardCard
-          className='bg-green-500'
+          className='bg-[#ffc26c]'
           Icon={ReturnSVG}
           header='Returned Books'
           count={data?.[1] || 0}
@@ -33,11 +36,29 @@ const Dashboard = () => {
         <DashboardCard
           className='bg-red-500'
           Icon={PendingSVG}
-          header='Pending'
+          header='Issued Books'
           path='/issue-book'
           count={data?.[2] || 0}
           isLoading={isLoading}
           onClick={fetch}
+        />
+        <DashboardCard
+          className='bg-sky-500'
+          Icon={UserSVG}
+          header='Authors'
+          path='/author'
+        />
+        <DashboardCard
+          className='bg-green-500'
+          Icon={VideoSVG}
+          header='Videos'
+          path='/youtube'
+        />
+        <DashboardCard
+          className='bg-orange-400'
+          Icon={MaterialSVG}
+          header='Materials'
+          path='/materials'
         />
       </div>
     </>
