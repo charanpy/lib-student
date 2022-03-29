@@ -43,10 +43,7 @@ const BookDetails = ({ open, toggle, book, id }) => {
           <BookDetailText name='edition' value={book?.edition} />
           <BookDetailText name='price' value={book?.price} />
           <BookDetailText name='pages' value={book?.totalPages} />
-          <BookDetailText
-            key='availability'
-            value={book?.totalCount ? 'Yes' : 'No'}
-          />
+          <BookDetailText key='availability' value={book?.totalCount} />
         </div>
       </div>
     </Popup>

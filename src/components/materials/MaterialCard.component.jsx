@@ -3,6 +3,7 @@ import { formatDate } from '../book-card/BookCard.component';
 import DownArrowSVG from '../shared/svg/DownArrow.svg';
 import MaterialSVG from '../shared/svg/Material.svg';
 import MaterialDetail from './MaterialDetail.component';
+
 import './materials.css';
 
 const MaterialCard = ({ material }) => {
@@ -11,7 +12,7 @@ const MaterialCard = ({ material }) => {
   return (
     <section className='cursor-pointer bg-white dark:bg-[#0A121A] w-full shadow-lg rounded-lg p-4 flex flex-col space-y-4'>
       <div className='row items-center space-x-6  justify-between'>
-        <div className='space-x-6 row items-center '>
+        <div className='space-x-2 md:space-x-6 row items-center '>
           <div className='rounded-full bg-rose-500 p-2 row centerAll'>
             <MaterialSVG className='fill-slate-100' />
           </div>

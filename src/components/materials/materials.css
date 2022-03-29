@@ -21,6 +21,11 @@
   z-index: 100000000000000000;
 }
 
+.materialPDF canvas {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
 @media (max-width: 350px) {
   .material {
     height: 100% !important;
@@ -43,4 +48,16 @@
   left: 45%;
   background: transparent;
   z-index: 100;
+}
+.all-page-container {
+  height: 100%;
+  max-height: 500px;
+  overflow: auto;
+}
+.react-pdf__Page__textContent {
+  position: relative !important;
+  width: auto !important;
+  height: auto !important;
+  top: 0 !important;
+  left: 0 !important;
 }
