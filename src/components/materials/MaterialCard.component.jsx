@@ -29,6 +29,7 @@ const MaterialCard = ({ material, restrict = false }) => {
           </div>
           <h1 className='text-slate-900 dark:text-slate-200 text-lg 2xl:text-xl capitalize'>
             {material?.title}
+            
           </h1>
         </div>
 
